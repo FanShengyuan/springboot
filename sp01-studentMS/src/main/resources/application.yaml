@@ -1,0 +1,20 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /student
+spring:
+  datasource:
+    username: root
+    password: 123456
+    #?serverTimezone=UTC\u89E3\u51B3\u65F6\u533A\u7684\u62A5\u9519
+    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    cache: false
+  messages:
+    encoding: UTF-8
+    basename: i18n.login
+    cache-second: 3600
+mybatis:
+  type-aliases-package: com.fanshengyuan.pojo
+  mapper-locations: classpath:mapper/*.xml

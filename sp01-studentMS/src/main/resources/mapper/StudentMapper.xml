@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fanshengyuan.mapper.StudentMapper">
+
+    <select id="queryStudentList" resultType="student">
+        select * from student;
+    </select>
+
+    <select id="queryStudentBySno" resultType="student" parameterType="int">
+        select * from student where sno = #{sno};
+    </select>
+
+    <insert id="addStudent" parameterType="student">
+        insert into student (sno, sname,sage,saddress)
+        values (#{sno},#{sname},#{sage},#{saddress});
+    </insert>
+
+    <delete id="deleteStudent" parameterType="int">
+        delete
+        from student
+        where sno=#{sno};
+    </delete>
+
+    <update id="updateStudent" parameterType="student">
+        update student
+        set sname=#{sname},sage=#{sage},saddress=#{saddress}
+        where sno=#{sno};
+    </update>
+</mapper>

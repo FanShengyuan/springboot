@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fanshengyuan.mapper.AccountMapper">
+
+    <select id="queryAccountList" resultType="account">
+        select * from account;
+    </select>
+
+    <select id="queryAccountById" resultType="account" parameterType="int">
+        select * from account where id = #{id};
+    </select>
+
+    <select id="queryAccountByUsername" resultType="account" parameterType="string">
+        select * from account where username = #{username};
+    </select>
+
+    <insert id="addAccount" parameterType="account">
+        insert into account (username, password)
+        values (#{username},#{password});
+    </insert>
+
+    <delete id="deleteAccount" parameterType="int">
+        delete
+        from account
+        where id=#{id};
+    </delete>
+
+    <update id="updateAccount" parameterType="account">
+        update account
+        set username = #{username},password=#{password}
+        where id=#{id};
+    </update>
+</mapper>
